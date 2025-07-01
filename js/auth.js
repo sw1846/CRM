@@ -1,7 +1,7 @@
 // auth.js - Google認証とDrive API管理
 
 // Google API設定
-const CLIENT_ID = 'YOUR_CLIENT_ID.apps.googleusercontent.com'; // 実際のClient IDに置き換えてください
+const CLIENT_ID = '938239904261-vt7rego8tmo4vhhcjp3fadca25asuh73.apps.googleusercontent.com'; // 実際のClient IDに置き換えてください
 const API_KEY = 'YOUR_API_KEY'; // 実際のAPI Keyに置き換えてください
 const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 const SCOPES = 'https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file';
