@@ -625,19 +625,15 @@
             }
 
             .toolbars-wrap {
-                padding: 5px calc(10px + var(--safe-area-left));
+                padding: 10px calc(10px + var(--safe-area-left));
             }
 
-            /* Collapse actions toolbar inside a scroll or simply hide some for mobile */
-            /* In a real app we might put these in a dropdown. Here we make it horizontal scroll */
+            /* For mobile, we explicitly wrap action buttons instead of horizontal scroll for better visibility */
             .actions-toolbar {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                /* Hide scrollbar Firefox */
-                padding: 8px 10px;
-                /* Adjust padding for landscape */
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                padding: 10px;
+                gap: 6px;
             }
 
             .actions-toolbar::-webkit-scrollbar {
@@ -646,43 +642,73 @@
             }
 
             .btn-action {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 /* Smaller text on mobile */
-                padding: 6px 12px;
+                padding: 6px 10px;
+                flex-grow: 1;
+                /* allow spreading */
+                text-align: center;
             }
 
             .views-toolbar {
-                padding: 8px 10px;
-                justify-content: center;
-                gap: 8px;
+                padding: 10px;
+                flex-direction: column;
+                /* Stack controls on mobile */
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .view-modes {
+                display: flex;
+                width: 100%;
+            }
+
+            .btn-view {
+                flex: 1;
+                font-size: 0.75rem;
+                padding: 8px 4px;
+                text-align: center;
             }
 
             .month-nav {
                 margin-left: 0;
                 width: 100%;
-                justify-content: center;
-                margin-top: 8px;
+                justify-content: space-between;
+                /* Spread arrows */
+                margin-top: 0;
             }
 
             .scheduler-main {
                 margin: 0;
                 border-radius: 0;
                 border-top: 1px solid var(--border-color);
+                flex: 1;
+                /* Ensure it takes remaining height */
+                min-height: 200px;
             }
 
             .sidebar {
-                width: 90px;
+                width: 80px;
+                /* Make left column even thinner on mobile */
             }
 
             /* Thinner sidebar */
             .job-category {
-                font-size: 0.75rem;
-                padding: 0 5px;
+                font-size: 0.7rem;
+                padding: 0 4px;
+                line-height: 1.2;
+                word-break: break-all;
+                /* Allow text wrapping if needed */
             }
 
             .sidebar-header {
                 font-size: 0.7rem;
-                padding: 0 5px;
+                padding: 0 4px;
+            }
+
+            .btn-add-job {
+                font-size: 0.7rem;
+                padding: 4px;
             }
 
             /* Show FAB explicitly on mobile instead of top buttons */
@@ -690,9 +716,11 @@
                 display: flex;
             }
 
+            /* Adjust day column widths for mobile to fit more naturally */
             :root {
                 --row-height: 55px;
-                /* Slightly taller for fat finger tapping */
+                --cell-width-day: 45px;
+                /* narrower days on mobile */
             }
 
             .gantt-bar {
